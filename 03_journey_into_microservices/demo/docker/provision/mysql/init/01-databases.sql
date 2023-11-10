@@ -6,7 +6,7 @@ CREATE DATABASE IF NOT EXISTS `masterclass_products`;
 CREATE DATABASE IF NOT EXISTS `masterclass_reports`;
 CREATE DATABASE IF NOT EXISTS `masterclass_subscriptions`;
 CREATE DATABASE IF NOT EXISTS `masterclass_tracks`;
-CREATE DATABASE IF NOT EXISTS `masterclass_users`;
+CREATE DATABASE IF NOT EXISTS `masterclass_auth`;
 
 # so group concats don't get truncated
 SET SESSION group_concat_max_len = 4294967295;

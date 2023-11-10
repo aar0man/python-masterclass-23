@@ -1,6 +1,6 @@
-from rep_common.enum_handler import SharedEnum
+from enum import Enum
 
 
-class Environment(SharedEnum):
+class Environment(Enum):
     DEVELOPMENT = 'DEVELOPMENT'
     PRODUCTION = 'PRODUCTION'

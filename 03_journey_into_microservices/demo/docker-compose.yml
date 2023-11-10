@@ -1,22 +1,22 @@
 services:
-  mediator-microservice:
-    build:
-      context: ./backend/mediator_microservice
-    image: masterclass_mediator_microservice_image:1.0
-    container_name: masterclass_mediator_microservice_1
-    command: su - masterclass bash -c " source $VENV_MEDIATOR && 
-      cd $MEDIATOR_MICROSERVICE_DIR"
-    depends_on:
-    - mysql
-    - redis
-    links:
-    - mysql
-    - redis
-    ports:
-    - 127.0.0.1:8000:8000
-    volumes:
-    - $PWD/backend/mediator_microservice:$MEDIATOR_MICROSERVICE_DIR
-    - $PWD/backend/rep_common:$REP_COMMON_DIR
+#  mediator-microservice:
+#    build:
+#      context: ./backend/mediator_microservice
+#    image: masterclass_mediator_microservice_image:1.0
+#    container_name: masterclass_mediator_microservice_1
+#    command: su - masterclass bash -c " source $VENV_MEDIATOR &&
+#      cd $MEDIATOR_MICROSERVICE_DIR"
+#    depends_on:
+#    - mysql
+#    - redis
+#    links:
+#    - mysql
+#    - redis
+#    ports:
+#    - 127.0.0.1:8000:8000
+#    volumes:
+#    - $PWD/backend/mediator_microservice:$MEDIATOR_MICROSERVICE_DIR
+#    - $PWD/backend/rep_common:$REP_COMMON_DIR_MEDIATOR
 
 #  mediator-workers-microservice:
 #    image: masterclass_mediator_microservice_image:1.0
@@ -32,28 +32,28 @@ services:
 #      - mysql
 #    volumes:
 #      - $PWD/backend/mediator_microservice:$MEDIATOR_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_MEDIATOR
 
 
-  email-notifications-microservice:
-    build:
-      context: ./backend/email_notifications_microservice
-    image: masterclass_email_notifications_microservice_image:1.0
-    container_name: masterclass_email_notifications_microservice_1
-    command: su - masterclass bash -c " source $VENV_EMAIL_NOTIF && 
-      cd $EMAIL_NOTIF_MICROSERVICE_DIR && 
-      python manage.py runserver 0:8010"
-    depends_on:
-    - mysql
-    - redis
-    links:
-    - mysql
-    - redis
-    ports:
-    - 127.0.0.1:8010:8010
-    volumes:
-    - $PWD/backend/email_notifications_microservice:$EMAIL_NOTIF_MICROSERVICE_DIR
-    - $PWD/backend/rep_common:$REP_COMMON_DIR
+#  email-notifications-microservice:
+#    build:
+#      context: ./backend/email_notifications_microservice
+#    image: masterclass_email_notifications_microservice_image:1.0
+#    container_name: masterclass_email_notifications_microservice_1
+#    command: su - masterclass bash -c " source $VENV_EMAIL_NOTIF &&
+#      cd $EMAIL_NOTIF_MICROSERVICE_DIR &&
+#      python manage.py runserver 0:8010"
+#    depends_on:
+#    - mysql
+#    - redis
+#    links:
+#    - mysql
+#    - redis
+#    ports:
+#    - 127.0.0.1:8010:8010
+#    volumes:
+#    - $PWD/backend/email_notifications_microservice:$EMAIL_NOTIF_MICROSERVICE_DIR
+#    - $PWD/backend/rep_common:$REP_COMMON_DIR_EMAIL_NOTIF
 
 #  email-notifications-workers-microservice:
 #    image: masterclass_email_notifications_microservice_image:1.0
@@ -69,27 +69,27 @@ services:
 #      - mysql
 #    volumes:
 #      - $PWD/backend/email_notifications_microservice:$EMAIL_NOTIF_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_EMAIL_NOTIF
 
-  sms-notifications-microservice:
-    build:
-      context: ./backend/sms_notifications_microservice
-    image: masterclass_sms_notifications_microservice_image:1.0
-    container_name: masterclass_sms_notifications-microservice_1
-    command: su - masterclass bash -c " source $VENV_SMS_NOTIF && 
-      cd $SMS_NOTIF_MICROSERVICE_DIR && 
-      python manage.py runserver 0:8020"
-    depends_on:
-    - mysql
-    - redis
-    links:
-    - mysql
-    - redis
-    ports:
-    - 127.0.0.1:8020:8020
-    volumes:
-    - $PWD/backend/sms_notifications_microservice:$SMS_NOTIF_MICROSERVICE_DIR
-    - $PWD/backend/rep_common:$REP_COMMON_DIR
+#  sms-notifications-microservice:
+#    build:
+#      context: ./backend/sms_notifications_microservice
+#    image: masterclass_sms_notifications_microservice_image:1.0
+#    container_name: masterclass_sms_notifications-microservice_1
+#    command: su - masterclass bash -c " source $VENV_SMS_NOTIF &&
+#      cd $SMS_NOTIF_MICROSERVICE_DIR &&
+#      python manage.py runserver 0:8020"
+#    depends_on:
+#    - mysql
+#    - redis
+#    links:
+#    - mysql
+#    - redis
+#    ports:
+#    - 127.0.0.1:8020:8020
+#    volumes:
+#    - $PWD/backend/sms_notifications_microservice:$SMS_NOTIF_MICROSERVICE_DIR
+#    - $PWD/backend/rep_common:$REP_COMMON_DIR_SMS_NOTIF
 
 #  sms-notifications-workers-microservice:
 #    image: masterclass_sms_notifications_microservice_image:1.0
@@ -105,15 +105,15 @@ services:
 #      - mysql
 #    volumes:
 #      - $PWD/backend/sms_notifications_microservice:$SMS_NOTIF_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_SMS_NOTIF
 
-  users-microservice:
+  auth-microservice:
     build:
-      context: ./backend/users_microservice
-    image: masterclass_users_microservice_image:1.0
-    container_name: masterclass_users-microservice_1
-    command: su - masterclass bash -c " source $VENV_USERS && 
-      cd $USERS_MICROSERVICE_DIR && 
+      context: ./backend/auth_microservice
+    image: masterclass_auth_microservice_image:1.0
+    container_name: masterclass_auth-microservice_1
+    command: su - masterclass bash -c " source $VENV_AUTH && 
+      cd $AUTH_MICROSERVICE_DIR && 
       python manage.py runserver 0:8030"
     depends_on:
     - mysql
@@ -124,44 +124,44 @@ services:
     ports:
     - 127.0.0.1:8030:8030
     volumes:
-    - $PWD/backend/users_microservice:$USERS_MICROSERVICE_DIR
-    - $PWD/backend/rep_common:$REP_COMMON_DIR
+    - $PWD/backend/auth_microservice:$AUTH_MICROSERVICE_DIR
+    - $PWD/backend/rep_common:$REP_COMMON_DIR_AUTH
 
-#  users-workers-microservice:
-#    image: masterclass_users_microservice_image:1.0
-#    command: su - masterclass bash -c " source $VENV_USERS && cd $USERS_MICROSERVICE_DIR
-#      && rm -f celerybeat-schedule.db && p=users_microservice_
-#      && $CELERY_BIN_USERS
-#      -A users_microservice worker -l info
+#  auth-workers-microservice:
+#    image: masterclass_auth_microservice_image:1.0
+#    command: su - masterclass bash -c " source $VENV_AUTH && cd $AUTH_MICROSERVICE_DIR
+#      && rm -f celerybeat-schedule.db && p=auth_microservice_
+#      && $CELERY_BIN_AUTH
+#      -A auth_microservice worker -l info
 #      -c 1 -B -Q $${p}beat,$${p}workflow,$${p}subtasks,$${p}default"
 #    depends_on:
-#      - users-microservice
+#      - auth-microservice
 #    links:
 #      - redis
 #      - mysql
 #    volumes:
-#      - $PWD/backend/users_microservice:$USERS_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#      - $PWD/backend/auth_microservice:$AUTH_MICROSERVICE_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_AUTH
 
-  tracks-microservice:
-    build:
-      context: ./backend/tracks_microservice
-    image: masterclass_tracks_microservice_image:1.0
-    container_name: masterclass_tracks-microservice_1
-    command: su - masterclass bash -c " source $VENV_TRACKS && 
-      cd $TRACKS_MICROSERVICE_DIR && 
-      python manage.py runserver 0:8040"
-    depends_on:
-    - mysql
-    - redis
-    links:
-    - mysql
-    - redis
-    ports:
-    - 127.0.0.1:8040:8040
-    volumes:
-    - $PWD/backend/tracks_microservice:$TRACKS_MICROSERVICE_DIR
-    - $PWD/backend/rep_common:$REP_COMMON_DIR
+#  tracks-microservice:
+#    build:
+#      context: ./backend/tracks_microservice
+#    image: masterclass_tracks_microservice_image:1.0
+#    container_name: masterclass_tracks-microservice_1
+#    command: su - masterclass bash -c " source $VENV_TRACKS &&
+#      cd $TRACKS_MICROSERVICE_DIR &&
+#      python manage.py runserver 0:8040"
+#    depends_on:
+#    - mysql
+#    - redis
+#    links:
+#    - mysql
+#    - redis
+#    ports:
+#    - 127.0.0.1:8040:8040
+#    volumes:
+#    - $PWD/backend/tracks_microservice:$TRACKS_MICROSERVICE_DIR
+#    - $PWD/backend/rep_common:$REP_COMMON_DIR_TRACKS
 
 #  tracks-workers-microservice:
 #    image: masterclass_tracks_microservice_image:1.0
@@ -177,27 +177,27 @@ services:
 #      - mysql
 #    volumes:
 #      - $PWD/backend/tracks_microservice:$TRACKS_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_TRACKS
 
-  products-microservice:
-    build:
-      context: ./backend/products_microservice
-    image: masterclass_products_microservice_image:1.0
-    container_name: masterclass_products-microservice_1
-    command: su - masterclass bash -c " source $VENV_PRODUCTS && 
-      cd $PRODUCTS_MICROSERVICE_DIR && 
-      python manage.py runserver 0:8050"
-    depends_on:
-    - mysql
-    - redis
-    links:
-    - mysql
-    - redis
-    ports:
-    - 127.0.0.1:8050:8050
-    volumes:
-    - $PWD/backend/products_microservice:$PRODUCTS_MICROSERVICE_DIR
-    - $PWD/backend/rep_common:$REP_COMMON_DIR
+#  products-microservice:
+#    build:
+#      context: ./backend/products_microservice
+#    image: masterclass_products_microservice_image:1.0
+#    container_name: masterclass_products-microservice_1
+#    command: su - masterclass bash -c " source $VENV_PRODUCTS &&
+#      cd $PRODUCTS_MICROSERVICE_DIR &&
+#      python manage.py runserver 0:8050"
+#    depends_on:
+#    - mysql
+#    - redis
+#    links:
+#    - mysql
+#    - redis
+#    ports:
+#    - 127.0.0.1:8050:8050
+#    volumes:
+#    - $PWD/backend/products_microservice:$PRODUCTS_MICROSERVICE_DIR
+#    - $PWD/backend/rep_common:$REP_COMMON_DIR_PRODUCTS
 
 #  products-workers-microservice:
 #    image: masterclass_products_microservice_image:1.0
@@ -213,27 +213,27 @@ services:
 #      - mysql
 #    volumes:
 #      - $PWD/backend/products_microservice:$PRODUCTS_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_PRODUCTS
 
-  reports-microservice:
-    build:
-      context: ./backend/reports_microservice
-    image: masterclass_reports_microservice_image:1.0
-    container_name: masterclass_reports-microservice_1
-    command: su - masterclass bash -c " source $VENV_REPORTS && 
-      cd $REPORTS_MICROSERVICE_DIR && 
-      python manage.py runserver 0:8060"
-    depends_on:
-    - mysql
-    - redis
-    links:
-    - mysql
-    - redis
-    ports:
-    - 127.0.0.1:8060:8060
-    volumes:
-    - $PWD/backend/reports_microservice:$REPORTS_MICROSERVICE_DIR
-    - $PWD/backend/rep_common:$REP_COMMON_DIR
+#  reports-microservice:
+#    build:
+#      context: ./backend/reports_microservice
+#    image: masterclass_reports_microservice_image:1.0
+#    container_name: masterclass_reports-microservice_1
+#    command: su - masterclass bash -c " source $VENV_REPORTS &&
+#      cd $REPORTS_MICROSERVICE_DIR &&
+#      python manage.py runserver 0:8060"
+#    depends_on:
+#    - mysql
+#    - redis
+#    links:
+#    - mysql
+#    - redis
+#    ports:
+#    - 127.0.0.1:8060:8060
+#    volumes:
+#    - $PWD/backend/reports_microservice:$REPORTS_MICROSERVICE_DIR
+#    - $PWD/backend/rep_common:$REP_COMMON_DIR_REPORTS
 
 #  reports-workers-microservice:
 #    image: masterclass_reports_microservice_image:1.0
@@ -249,27 +249,27 @@ services:
 #      - mysql
 #    volumes:
 #      - $PWD/backend/reports_microservice:$REPORTS_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_REPORTS
 
-  subscriptions-microservice:
-    build:
-      context: ./backend/subscriptions_microservice
-    image: masterclass_subscriptions_microservice_image:1.0
-    container_name: masterclass_subscriptions-microservice_1
-    command: su - masterclass bash -c " source $VENV_SUBSCRIPTIONS &&
-      cd $SUBSCRIPTIONS_MICROSERVICE_DIR &&
-      python manage.py runserver 0:8070"
-    depends_on:
-      - mysql
-      - redis
-    links:
-      - mysql
-      - redis
-    ports:
-      - 127.0.0.1:8070:8070
-    volumes:
-      - $PWD/backend/subscriptions_microservice:$SUBSCRIPTIONS_MICROSERVICE_DIR
-      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#  subscriptions-microservice:
+#    build:
+#      context: ./backend/subscriptions_microservice
+#    image: masterclass_subscriptions_microservice_image:1.0
+#    container_name: masterclass_subscriptions-microservice_1
+#    command: su - masterclass bash -c " source $VENV_SUBSCRIPTIONS &&
+#      cd $SUBSCRIPTIONS_MICROSERVICE_DIR &&
+#      python manage.py runserver 0:8070"
+#    depends_on:
+#      - mysql
+#      - redis
+#    links:
+#      - mysql
+#      - redis
+#    ports:
+#      - 127.0.0.1:8070:8070
+#    volumes:
+#      - $PWD/backend/subscriptions_microservice:$SUBSCRIPTIONS_MICROSERVICE_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_SUBSCRIPTIONS
 
 #  subscriptions-workers-microservice:
 #    image: masterclass_subscriptions_microservice_image:1.0
@@ -285,44 +285,7 @@ services:
 #      - mysql
 #    volumes:
 #      - $PWD/backend/subscriptions_microservice:$SUBSCRIPTIONS_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
-
-
-  ai-microservice:
-    build:
-      context: ./backend/ai_microservice
-    image: masterclass_ai_microservice_image:1.0
-    container_name: masterclass_ai-microservice_1
-    command: su - masterclass bash -c " source $VENV_AI && 
-      cd $AI_MICROSERVICE_DIR && 
-      python manage.py runserver 0:9000"
-    depends_on:
-    - mysql
-    - redis
-    links:
-    - mysql
-    - redis
-    ports:
-    - 127.0.0.1:9000:9000
-    volumes:
-    - $PWD/backend/ai_microservice:$AI_MICROSERVICE_DIR
-    - $PWD/backend/rep_common:$REP_COMMON_DIR
-
-#  ai-workers-microservice:
-#    image: masterclass_ai_microservice_image:1.0
-#    command: su - masterclass bash -c " source $VENV_AI && cd $AI_MICROSERVICE_DIR
-#      && rm -f celerybeat-schedule.db && p=ai_microservice_
-#      && $CELERY_BIN_AI
-#      -A ai_microservice worker -l info
-#      -c 1 -B -Q $${p}beat,$${p}workflow,$${p}subtasks,$${p}default"
-#    depends_on:
-#      - ai-microservice
-#    links:
-#      - redis
-#      - mysql
-#    volumes:
-#      - $PWD/backend/ai_microservice:$AI_MICROSERVICE_DIR
-#      - $PWD/backend/rep_common:$REP_COMMON_DIR
+#      - $PWD/backend/rep_common:$REP_COMMON_DIR_SUBSCRIPTIONS
 
   mysql:
     command: --max_allowed_packet=10G --group-concat-max-len=4294967295

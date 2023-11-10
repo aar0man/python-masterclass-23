@@ -57,7 +57,7 @@ def with_map():
 
 @timeit
 def process_data(_data_without_map):
-    for i in deque(data_without_map):
+    for i in data_without_map:
         pass
 
 
