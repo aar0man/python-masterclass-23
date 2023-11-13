@@ -63,7 +63,7 @@ class MapReduce:
 
 @timeit
 def main():
-    data = read_data_from_file("../../utils/random_text.txt")
+    data = read_data_from_file("/home/andrei/workspace/masterclass/masterclass/python-masterclass-23/random_text.txt")
     map_reduce = MapReduce(data*10)
     map_reduce.get_results(print_results=False)
 

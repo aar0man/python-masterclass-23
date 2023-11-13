@@ -57,13 +57,13 @@ def with_map():
 
 @timeit
 def process_data(_data_without_map):
-    for i in data_without_map:
+    for i in _data_without_map:
         pass
 
 
 @timeit
 def process_data_deque(_data_without_map):
-    for i in deque(data_without_map):
+    for i in deque(_data_without_map):
         pass
 
 
@@ -114,30 +114,34 @@ def call_class_method_with_variable():
 if __name__ == '__main__':
     # part 1 ===================================================
 
-    data_without_map = without_map()
-    data_without_map_and_yield = without_map_and_yield()
-    data_with_map = with_map()
-
-    print()
-
-    process_data(data_without_map)
-    process_data(data_without_map_and_yield)
-    process_data(data_with_map)
-
-    print()
-
-    process_data_deque(data_without_map)
-    process_data_deque(data_without_map_and_yield)
-    process_data_deque(data_with_map)
+    # data_without_map = without_map()
+    # data_without_map_and_yield = without_map_and_yield()
+    # data_with_map = with_map()
+    #
+    # print()
+    #
+    # process_data(data_without_map)
+    # process_data(data_without_map_and_yield)
+    # process_data(data_with_map)
+    #
+    # print()
+    #
+    # process_data_deque(data_without_map)
+    # process_data_deque(data_without_map_and_yield)
+    # process_data_deque(data_with_map)
 
     # part 2 ===================================================
 
-    # alphabet_dict = {letter: 1 for letter in string.ascii_lowercase}
-    # check_key_in_dict(alphabet_dict.copy())
-    # check_key_in_dict_with_try(alphabet_dict.copy())
+    alphabet_dict = {letter: 1 for letter in masterclass_word}
+    check_key_in_dict(alphabet_dict.copy())
+    check_key_in_dict_with_try(alphabet_dict.copy())
 
     # part 3 ===================================================
 
-    # call_class_method()
-    # call_class_method_with_variable()
+    call_class_method()
+    call_class_method_with_variable()
 
+
+def get_random_string():  # example for lazy imports
+    from utils import random_string
+    return random_string()

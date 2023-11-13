@@ -12,7 +12,7 @@ logs/*
 backend/logs/*
 !backend/logs/_empty_
 backend/test_results
-../.idea
+.idea
 db.sqlite3
 
 

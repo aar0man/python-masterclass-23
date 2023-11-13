@@ -1,7 +1,7 @@
 import re
 import threading
 from random_text import RANDOM_TEXT
-from utils import timeit
+from utils import timeit, read_data_from_file
 
 
 class MapReduce:
@@ -60,11 +60,12 @@ class MapReduce:
         for thread in reduce_threads:
             thread.join()
 
-        self.print_results(reduce_result)
+        # self.print_results(reduce_result)
 
 @timeit
 def main():
-    map_reduce = MapReduce(RANDOM_TEXT)
+    data = read_data_from_file("/home/andrei/workspace/masterclass/masterclass/python-masterclass-23/random_text.txt")
+    map_reduce = MapReduce(data*10)
     map_reduce.run_map_reduce()
 
 if __name__ == '__main__':

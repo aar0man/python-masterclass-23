@@ -18,10 +18,7 @@ class UserInfoQuery(ObjectType):
 
     def resolve_users_info_by_ids(self, info, ids=[]):
         # authorization not added but it should be based on JWT previous logic
-        if len(ids) <= 0:
-            users = User.objects.all()
-        else:
-            users = User.objects.filter(id__in=ids)
+        users = User.objects.filter(id__in=ids)
         return {int(user.id): {
             'username': user.username,
             'email': user.email

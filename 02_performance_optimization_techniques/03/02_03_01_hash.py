@@ -13,21 +13,19 @@ class CustomDict:
         index = self.hash_function(key)
         self.table[index] = (key, value)
 
+    def get(self, key):
+        index = self.hash_function(key)
+        entry = self.table[index]
+        if entry is not None and entry[0] == key:
+            return entry[1]
+        return None
 
-def get(self, key):
-    index = self.hash_function(key)
-    entry = self.table[index]
-    if entry is not None and entry[0] == key:
-        return entry[1]
-    return None
-
-
-def remove(self, key):
-    index = self.hash_function(key)
-    entry = self.table[index]
-    if entry is not None and entry[0] == key:
-        self.table[index] = None
-    raise KeyError(f"Key '{key}' not found")
+    def remove(self, key):
+        index = self.hash_function(key)
+        entry = self.table[index]
+        if entry is not None and entry[0] == key:
+            self.table[index] = None
+        return None
 
 
 @timeit

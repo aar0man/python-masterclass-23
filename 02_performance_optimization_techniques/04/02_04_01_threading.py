@@ -34,5 +34,5 @@ def run_demo_async():
 
 
 if __name__ == "__main__":
-    # run_demo_sync()
+    run_demo_sync()
     run_demo_async()

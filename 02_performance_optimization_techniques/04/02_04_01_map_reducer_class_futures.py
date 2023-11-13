@@ -1,6 +1,6 @@
 import re
 import concurrent.futures
-from utils import timeit
+from utils import timeit, read_data_from_file
 
 
 class MapReduce:
@@ -52,13 +52,14 @@ class MapReduce:
         shuffled_data = self.get_shuffled_data(mapped_data)
         reduced_data = self.get_reduced_data(shuffled_data)
 
-        if print_results:
-            self.print_results(reduced_data)
+        # if print_results:
+        #     self.print_results(reduced_data)
 
 
 @timeit
 def main():
-    map_reduce = MapReduce(RANDOM_TEXT)
+    data = read_data_from_file("/home/andrei/workspace/masterclass/masterclass/python-masterclass-23/random_text.txt")
+    map_reduce = MapReduce(data*10)
     map_reduce.get_results(print_results=True)
 
 
