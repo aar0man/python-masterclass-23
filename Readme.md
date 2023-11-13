@@ -11,6 +11,6 @@ Extra learning resources:
 * https://sourcemaking.com
 * https://hackr.io/blog/best-python-books-for-beginners-and-advanced-programmers
 
-Created by Andrei Roman, software developer at [Assist Software](https://assist-software.net/)
+Created by Andrei Roman, Python Software Developer at [Assist Software](https://assist-software.net/)
 
 If you want to execute the practical cases and have problems, you can contact me at andrei.roman@assist.ro.
