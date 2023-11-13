@@ -1,5 +1,5 @@
-from random_text import RANDOM_TEXT
-from utils import timeit
+from utils.random_text import RANDOM_TEXT
+from utils.utils import timeit
 
 
 def map_function(text):

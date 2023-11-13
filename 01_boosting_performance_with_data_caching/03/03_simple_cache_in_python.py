@@ -1,5 +1,5 @@
 import time
-from utils import timeit
+from utils.utils import timeit
 
 cache = {}
 

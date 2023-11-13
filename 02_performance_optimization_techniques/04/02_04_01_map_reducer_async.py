@@ -1,6 +1,6 @@
 import time
 import asyncio
-from random_text import RANDOM_TEXT
+from utils.random_text import RANDOM_TEXT
 
 
 async def map_function(text):

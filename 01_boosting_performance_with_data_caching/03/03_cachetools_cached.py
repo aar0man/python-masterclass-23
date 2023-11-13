@@ -1,7 +1,7 @@
 import time
 from cachetools import cached
 
-from utils import timeit
+from utils.utils import timeit
 
 cache = {}
 

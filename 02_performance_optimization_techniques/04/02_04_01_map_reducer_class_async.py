@@ -2,7 +2,7 @@ import re
 import asyncio
 import time
 
-from utils import timeit, read_data_from_file, write_data_to_file
+from utils.utils import timeit, read_data_from_file, write_data_to_file
 
 
 class MapReduce:
@@ -71,7 +71,7 @@ class MapReduce:
 
 @timeit
 async def main():
-    data = read_data_from_file("/home/andrei/workspace/masterclass/masterclass/python-masterclass-23/random_text.txt")
+    data = read_data_from_file("/utils/random_text.txt")
     map_reduce = MapReduce(data*10)
     await map_reduce.get_results(print_results=False)
 

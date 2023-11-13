@@ -1,5 +1,5 @@
 from collections import deque
-from utils import timeit
+from utils.utils import timeit
 
 original_string = "masterclass"
 original_string = """
@@ -143,5 +143,5 @@ if __name__ == '__main__':
 
 
 def get_random_string():  # example for lazy imports
-    from utils import random_string
+    from utils.utils import random_string
     return random_string()

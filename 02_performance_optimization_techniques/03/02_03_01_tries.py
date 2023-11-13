@@ -1,5 +1,5 @@
 import marisa_trie
-from utils import timeit, random_string
+from utils.utils import timeit, random_string
 
 
 @timeit

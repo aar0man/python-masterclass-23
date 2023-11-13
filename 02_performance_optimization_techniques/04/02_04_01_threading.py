@@ -1,6 +1,6 @@
 import time
 import threading
-from utils import timeit
+from utils.utils import timeit
 
 
 def demo_func(number):

@@ -1,4 +1,4 @@
-from utils import timeit, get_random_list
+from utils.utils import timeit, get_random_list
 from collections import defaultdict
 from collections import Counter
 

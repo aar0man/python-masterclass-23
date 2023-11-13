@@ -1,6 +1,6 @@
 import threading
 from concurrent.futures import Future
-from utils import timeit
+from utils.utils import timeit
 
 
 def fetch_demo_func(number):

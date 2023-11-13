@@ -1,6 +1,6 @@
 import memcache
 
-from utils import timeit
+from utils.utils import timeit
 
 
 class CacheAsideWithMemcached:

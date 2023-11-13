@@ -2,7 +2,7 @@ import threading
 import concurrent.futures
 import time
 import asyncio
-from utils import timeit
+from utils.utils import timeit
 
 
 def io_task(name):
