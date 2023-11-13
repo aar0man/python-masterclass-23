@@ -14,3 +14,5 @@ Extra learning resources:
 Created by Andrei Roman, Python Software Developer at [Assist Software](https://assist-software.net/)
 
 If you want to execute the practical cases and have problems, you can contact me at andrei.roman@assist.ro.
+
+Here is the link to my colleague's materials: [will be added soon](https://assist-software.net/) 
